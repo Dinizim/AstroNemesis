@@ -2,10 +2,8 @@
 # -*- coding: utf-8 -*-
 import pygame
 from pygame import Surface, Rect
+from code.Const import W_HEIGHT, W_WIDTH
 from code.menu import Menu
-
-W_WIDTH = 1240
-W_HEIGHT = 720
 
 class Game:
     def __init__(self):
@@ -15,16 +13,8 @@ class Game:
     def run(self):
         while True:
             menu = Menu(self.window)
-            menu.Run()
+            menu.run()
             pass
 
-
-
-        # running = True
-        # while running:
-        #     for event in pygame.event.get():
-        #         if event.type == pygame.QUIT:  
-        #             running = False
-        # pygame.quit()
 
 
