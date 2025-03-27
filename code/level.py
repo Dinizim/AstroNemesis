@@ -1,12 +1,15 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
-class Level:
-    def __init__(self):
-        self.window = None
-        self.name = None
-        self.entity_list = None
-        self.entity_list = None
+from xml.dom.minidom import Entity
 
-    def run(self, ):
+
+class Level:
+    def __init__(self, window, name, menu_list):
+        self.window = window
+        self.name = name
+        self.menu_list = menu_list
+        self.entity_list: list[Entity] = []
+
+    def run(self):
         pass

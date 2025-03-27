@@ -4,28 +4,29 @@ import pygame
 from pygame import Surface, Rect
 from pygame.font import Font
 
-from code.Const import C_ORANGE, C_WHITE, C_YELLOW, MENU_OPTION, W_WIDTH
+from code.Const import C_GREENNESS, C_GREY, C_ORANGE, C_WHITE, C_YELLOW, MENU_OPTION, W_HEIGHT, W_WIDTH
 
 class Menu:
     def __init__(self,window):
         self.window = window
-        self.surf = pygame.image.load('./asset/MenuBg.png')
+        self.surf = pygame.image.load('./layered/blue-with-stars.png')
+        self.surf = self.tranform_scale(self.surf, (W_WIDTH, W_HEIGHT))
         self.rect = self.surf.get_rect(left=0, top=0)
 
     def run(self):
         menu_option = 0
-        pygame.mixer_music.load('./asset/Menu.mp3')
+        pygame.mixer_music.load('./layered/Menu.ogg')
         pygame.mixer_music.play(-1)
         while True:
             self.window.blit(source=self.surf, dest=self.rect)
-            self.menu_text(80, "Mountain", C_ORANGE, ((W_WIDTH / 2), 70))
-            self.menu_text(80, "Shooter", C_ORANGE, ((W_WIDTH / 2), 120))
+            self.menu_text(80, "Astro", C_GREENNESS, ((W_WIDTH / 2.6), 70))
+            self.menu_text(80, "Nemesis", C_GREENNESS, ((W_WIDTH / 1.9), 120))
 
             for i in range(len(MENU_OPTION)):
                 if i == menu_option:
-                    self.menu_text(25, MENU_OPTION[i], C_YELLOW, ((W_WIDTH / 2), 200 + 25 * i))
+                    self.menu_text(25, MENU_OPTION[i], C_GREENNESS, ((W_WIDTH / 2), 200 + 25 * i))
                 else:
-                    self.menu_text(25, MENU_OPTION[i], C_WHITE, ((W_WIDTH / 2), 200 + 25 * i))
+                    self.menu_text(25, MENU_OPTION[i], C_GREY, ((W_WIDTH / 2), 200 + 25 * i))
             pygame.display.flip()
 
             
@@ -56,3 +57,5 @@ class Menu:
         text_rect: pygame.Rect = text_surf.get_rect(center=text_center_pos)
         self.window.blit(source=text_surf, dest=text_rect)
 
+    def tranform_scale(self, image: Surface, size: tuple):
+        return pygame.transform.scale(image, size)
