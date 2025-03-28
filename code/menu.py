@@ -9,7 +9,7 @@ from code.Const import C_GREENNESS, C_GREY, C_ORANGE, C_WHITE, C_YELLOW, MENU_OP
 class Menu:
     def __init__(self,window):
         self.window = window
-        self.surf = pygame.image.load('./layered/blue-with-stars.png')
+        self.surf = pygame.image.load('./layered/MenuBg.png')
         self.surf = self.tranform_scale(self.surf, (W_WIDTH, W_HEIGHT))
         self.rect = self.surf.get_rect(left=0, top=0)
 
