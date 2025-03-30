@@ -1,8 +1,8 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-
 import random
 from tkinter.font import Font
+from code.entityMediator import EntityMediator
 from code.Const import C_WHITE, EVENT_ENEMYFAST, W_HEIGHT
 from code.entity import Entity
 import pygame
@@ -34,16 +34,10 @@ class Level:
                     running = False
                 if event.type == EVENT_ENEMYFAST:
                  choice = random.choice(('EnemyFast', 'EnemyFat'))
-                 enemy_fast_count = sum(1 for entity in self.entity_list if entity.name == 'EnemyFast')
-                 enemy_fat_count = sum(1 for entity in self.entity_list if entity.name == 'EnemyFat')
-                 max_enemy_fast = 4
-                 max_enemy_fat = 3
-                 if choice == 'EnemyFast' and enemy_fast_count < max_enemy_fast:
-                        self.entity_list.append(EntityFactory.get_entity('EnemyFast'))
-                 elif choice == 'EnemyFat' and enemy_fat_count < max_enemy_fat:
-                        self.entity_list.append(EntityFactory.get_entity('EnemyFat'))
+                 self.entity_list.append(EntityFactory.get_entity(choice))
 
-                 self.speedEnemyfast += 500
+                 #TODO: Refatorar logica para por um limitador
+                 self.speedEnemyfast -= 500
                  pygame.time.set_timer(EVENT_ENEMYFAST, self.speedEnemyfast) 
 
             for ent in self.entity_list:
@@ -54,6 +48,9 @@ class Level:
             self.level_text(14, f'{self.name} - Timeout: {self.timeout / 1000:.1f}s', C_WHITE, (10, 5))
             self.level_text(14, f'fps: {clock.get_fps():.0f}', C_WHITE, (10, W_HEIGHT - 35))
             self.level_text(14, f'entidades: {len(self.entity_list)}', C_WHITE, (10, W_HEIGHT - 20))
+
+            EntityMediator.verify_collision(entity_list=self.entity_list)
+            EntityMediator.verify_health(entity_list=self.entity_list)
             pygame.display.flip()
     
     def level_text(self, text_size: int, text: str, text_color: tuple, text_pos: tuple):
