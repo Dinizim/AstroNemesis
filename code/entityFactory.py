@@ -30,3 +30,6 @@ class EntityFactory:
                 return Enemy('EnemyFast', position=(W_WIDTH + 50, random.randint(100, W_HEIGHT - 100)))
             case 'EnemyFat' :
                 return Enemy('EnemyFat', position=(W_WIDTH + 50, random.randint(110, W_HEIGHT - 110)))
+            case _:
+                print(f"Warning: Unknown entity '{entity_name}' requested.")
+                return None

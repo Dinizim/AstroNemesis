@@ -23,7 +23,8 @@ ENTITY_SPEED = {
     "level1Bg5" : 2,
     "PlayerShip" : 3,
     "EnemyFast" : 7,
-    "EnemyFat" : 4,   
+    "EnemyFat" : 4, 
+    "PlaterShot": 10,  
 }
 ENTITY_HEALTH = {
     "level1Bg0" : 9999,

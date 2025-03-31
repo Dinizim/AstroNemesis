@@ -4,6 +4,7 @@
 import pygame
 from code.Const import ENTITY_SPEED
 from code.entity import Entity
+from code.playerShot import PlayerShoot
 
 
 class Player(Entity):
@@ -27,3 +28,10 @@ class Player(Entity):
         if pressed_key[pygame.K_LEFT] and self.rect.left > 0:
             self.rect.centerx -= ENTITY_SPEED[self.name]
         pass
+
+    def shoot(self,):
+        pressed_key = pygame.key.get_pressed()
+        if pressed_key[pygame.K_SPACE]:
+            PlayerShoot(name=f'{self.name}Shot',position=(self.rect.centerx + 20, self.rect.centery))
+        else :
+            return None

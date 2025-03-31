@@ -2,12 +2,14 @@
 # -*- coding: utf-8 -*-
 import random
 from tkinter.font import Font
+from code.enemy import Enemy
 from code.entityMediator import EntityMediator
 from code.Const import C_WHITE, EVENT_ENEMYFAST, W_HEIGHT
 from code.entity import Entity
 import pygame
 
 from code.entityFactory import EntityFactory
+from code.player import Player
 
 
 class Level:
@@ -43,7 +45,9 @@ class Level:
             for ent in self.entity_list:
                 self.window.blit(source=ent.surf, dest=ent.rect)
                 ent.move()
-
+                if isinstance(ent, Player):
+                    self.entity_list.append(ent.shoot())
+                
 
             self.level_text(14, f'{self.name} - Timeout: {self.timeout / 1000:.1f}s', C_WHITE, (10, 5))
             self.level_text(14, f'fps: {clock.get_fps():.0f}', C_WHITE, (10, W_HEIGHT - 35))
