@@ -5,7 +5,7 @@ from tkinter.font import Font
 from code.enemy import Enemy
 from code.player import Player
 from code.entityMediator import EntityMediator
-from code.Const import C_WHITE, EVENT_ENEMYFAST, W_HEIGHT
+from code.Const import C_GREENNESS, C_WHITE, EVENT_ENEMYFAST, W_HEIGHT
 from code.entity import Entity
 import pygame
 
@@ -39,6 +39,7 @@ class Level:
                     shoot = ent.shoot()
                     if shoot is not None:
                         self.entity_list.append(shoot)
+                self.level_text(14, f'Player - Health: {ent.health} | Score: {ent.score}', C_GREENNESS, (10, 25))
 
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:

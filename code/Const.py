@@ -42,7 +42,40 @@ ENTITY_HEALTH = {
     "EnemyFatShot" : 1,
     "EnemyFastShot" : 1,
 }
-
+ENTITY_DAMAGE = {
+    "level1Bg0": 0,
+    "level1Bg1": 0,
+    "level1Bg2": 0,
+    "level1Bg3": 0,
+    "level1Bg4": 0,
+    "level1Bg5": 0,
+    "PlayerShip": 1,
+    "PlayerShipShot": 25,
+    "EnemyFat": 1,
+    "EnemyFatShot": 20,
+    "EnemyFast": 1,
+    "EnemyFastShot": 15,
+}
+ENTITY_SCORE = {
+    'Level1Bg0': 0,
+    'Level1Bg1': 0,
+    'Level1Bg2': 0,
+    'Level1Bg3': 0,
+    'Level1Bg4': 0,
+    'Level1Bg5': 0,
+    'Level1Bg6': 0,
+    'Level2Bg0': 0,
+    'Level2Bg1': 0,
+    'Level2Bg2': 0,
+    'Level2Bg3': 0,
+    'Level2Bg4': 0,
+    'PlayerShip': 0,
+    'PlayerShipShot': 0,
+    'EnemyFat': 200,
+    'EnemyFatShot': 0,
+    'EnemyFast': 125,
+    'EnemyFastShot': 0,
+}
 #MENU_OPTION
 MENU_OPTION = ["NEW GAME 1P",
                "NEW GAME 2P - COOPERATIVE",
