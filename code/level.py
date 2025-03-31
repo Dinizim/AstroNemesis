@@ -3,6 +3,7 @@
 import random
 from tkinter.font import Font
 from code.enemy import Enemy
+from code.player import Player
 from code.entityMediator import EntityMediator
 from code.Const import C_WHITE, EVENT_ENEMYFAST, W_HEIGHT
 from code.entity import Entity
@@ -31,6 +32,14 @@ class Level:
         running = True
         while running:
             clock.tick(60)
+            for ent in self.entity_list:
+                self.window.blit(source=ent.surf, dest=ent.rect)
+                ent.move()
+                if isinstance(ent, Player) or (hasattr(ent, 'name') and ent.name == 'EnemyFat'):
+                    shoot = ent.shoot()
+                    if shoot is not None:
+                        self.entity_list.append(shoot)
+
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     running = False
@@ -41,12 +50,6 @@ class Level:
                  #TODO: Refatorar logica para por um limitador
                  self.speedEnemyfast -= 500
                  pygame.time.set_timer(EVENT_ENEMYFAST, self.speedEnemyfast) 
-
-            for ent in self.entity_list:
-                self.window.blit(source=ent.surf, dest=ent.rect)
-                ent.move()
-                if isinstance(ent, Player):
-                    self.entity_list.append(ent.shoot())
                 
 
             self.level_text(14, f'{self.name} - Timeout: {self.timeout / 1000:.1f}s', C_WHITE, (10, 5))

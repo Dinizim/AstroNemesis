@@ -10,7 +10,7 @@ from code.playerShot import PlayerShoot
 class Player(Entity):
     def __init__(self, name : str, position: tuple):
         super().__init__(name, position)
-        
+        self.shot_cooldown = 40
 
         pass
 
@@ -30,8 +30,11 @@ class Player(Entity):
         pass
 
     def shoot(self,):
-        pressed_key = pygame.key.get_pressed()
-        if pressed_key[pygame.K_SPACE]:
-            PlayerShoot(name=f'{self.name}Shot',position=(self.rect.centerx + 20, self.rect.centery))
-        else :
-            return None
+        self.shot_cooldown -= 10
+        if self.shot_cooldown == 0:
+            self.shot_cooldown = 40
+            pressed_key = pygame.key.get_pressed()
+            if pressed_key[pygame.K_SPACE]:
+                return PlayerShoot(name=f'{self.name}Shot',position=(self.rect.centerx + 20, self.rect.centery))
+            else :
+                return None

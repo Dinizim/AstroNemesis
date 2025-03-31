@@ -24,7 +24,9 @@ ENTITY_SPEED = {
     "PlayerShip" : 3,
     "EnemyFast" : 7,
     "EnemyFat" : 4, 
-    "PlaterShot": 10,  
+    "PlayerShipShot": 10,  
+    "EnemyFatShot" : 40,
+    "EnemyFastShot" : 1,
 }
 ENTITY_HEALTH = {
     "level1Bg0" : 9999,
@@ -36,6 +38,9 @@ ENTITY_HEALTH = {
     "PlayerShip" : 100,
     "EnemyFast" : 20,
     "EnemyFat" : 50,
+    "PlayerShipShot": 1,
+    "EnemyFatShot" : 1,
+    "EnemyFastShot" : 1,
 }
 
 #MENU_OPTION
