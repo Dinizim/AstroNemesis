@@ -28,7 +28,7 @@ class Level:
         self.lastScore = 0
 
     def run(self):
-        pygame.mixer_music.load('./layered/EpicEnd.ogg')
+        pygame.mixer_music.load('./Assets/EpicEnd.ogg')
         pygame.mixer_music.play(-1)
         clock = pygame.time.Clock()
         running = True
@@ -73,7 +73,7 @@ class Level:
 
     def game_over(self, score_player):
         pygame.mixer_music.stop()  
-        pygame.mixer_music.load('./layered/Defeated.ogg')
+        pygame.mixer_music.load('./Assets/Defeated.ogg')
         pygame.mixer_music.play(-1)
 
         # Exibe o fundo do nível

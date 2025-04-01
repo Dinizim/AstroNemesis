@@ -9,13 +9,13 @@ from code.Const import C_GREENNESS, C_GREY, C_ORANGE, C_WHITE, C_YELLOW, MENU_OP
 class Menu:
     def __init__(self,window):
         self.window = window
-        self.surf = pygame.image.load('./layered/MenuBg.png')
+        self.surf = pygame.image.load('./Assets/MenuBg.png')
         self.surf = self.tranform_scale(self.surf, (W_WIDTH, W_HEIGHT))
         self.rect = self.surf.get_rect(left=0, top=0)
-    #TODO: refatorar menu e adicionar o Guia do jogo
+
     def run(self):
         menu_option = 0
-        pygame.mixer_music.load('./layered/Menu.ogg')
+        pygame.mixer_music.load('./Assets/Menu.ogg')
         pygame.mixer_music.play(-1)
         while True:
             self.window.blit(source=self.surf, dest=self.rect)
