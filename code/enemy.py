@@ -12,8 +12,15 @@ class Enemy(Entity):
         super().__init__(name, position)
         self.shot_cooldown = 20
 
-    def move(self, ):
-        self.rect.centerx -= ENTITY_SPEED[self.name]
+    def move(self):
+        if self.name == "EnemyFast":
+            if self.rect.centerx < W_WIDTH * 0.75:
+                self.rect.centerx -= ENTITY_SPEED[self.name] * 3 
+            else:
+                self.rect.centerx -= ENTITY_SPEED[self.name]  
+        else:
+            self.rect.centerx -= ENTITY_SPEED[self.name]
+
 
     def shoot(self,):
         self.shot_cooldown -= 1

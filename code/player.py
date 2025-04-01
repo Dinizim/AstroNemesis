@@ -30,7 +30,7 @@ class Player(Entity):
         pass
 
     def shoot(self,):
-        self.shot_cooldown -= 10
+        self.shot_cooldown -= 5
         if self.shot_cooldown == 0:
             self.shot_cooldown = 40
             pressed_key = pygame.key.get_pressed()

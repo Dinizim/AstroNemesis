@@ -13,6 +13,7 @@ C_GREENNESS = (0, 255, 0)
 C_GREY = (0, 255, 255)
 
 #E
+EVENT_TIMEOUT = pygame.USEREVENT + 2
 EVENT_ENEMYFAST = pygame.USEREVENT + 1
 ENTITY_SPEED = {
     "level1Bg0" : 0.5,
@@ -23,7 +24,7 @@ ENTITY_SPEED = {
     "level1Bg5" : 2,
     "PlayerShip" : 3,
     "EnemyFast" : 7,
-    "EnemyFat" : 4, 
+    "EnemyFat" : 3, 
     "PlayerShipShot": 10,  
     "EnemyFatShot" : 40,
     "EnemyFastShot" : 1,
@@ -49,26 +50,20 @@ ENTITY_DAMAGE = {
     "level1Bg3": 0,
     "level1Bg4": 0,
     "level1Bg5": 0,
-    "PlayerShip": 1,
+    "PlayerShip": 50,
     "PlayerShipShot": 25,
-    "EnemyFat": 1,
-    "EnemyFatShot": 20,
-    "EnemyFast": 1,
+    "EnemyFat": 50,
+    "EnemyFatShot": 10,
+    "EnemyFast": 25,
     "EnemyFastShot": 15,
 }
 ENTITY_SCORE = {
-    'Level1Bg0': 0,
-    'Level1Bg1': 0,
-    'Level1Bg2': 0,
-    'Level1Bg3': 0,
-    'Level1Bg4': 0,
-    'Level1Bg5': 0,
-    'Level1Bg6': 0,
-    'Level2Bg0': 0,
-    'Level2Bg1': 0,
-    'Level2Bg2': 0,
-    'Level2Bg3': 0,
-    'Level2Bg4': 0,
+    "level1Bg0": 0,
+    "level1Bg1": 0,
+    "level1Bg2": 0,
+    "level1Bg3": 0,
+    "level1Bg4": 0,
+    "level1Bg5": 0,
     'PlayerShip': 0,
     'PlayerShipShot': 0,
     'EnemyFat': 200,
@@ -77,8 +72,5 @@ ENTITY_SCORE = {
     'EnemyFastShot': 0,
 }
 #MENU_OPTION
-MENU_OPTION = ["NEW GAME 1P",
-               "NEW GAME 2P - COOPERATIVE",
-               "NEW GAME 2P - COMPETITIVE",
-               "SCORE",
+MENU_OPTION = ["ENDLESS MODE",
                "QUIT"]

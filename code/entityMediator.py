@@ -22,7 +22,7 @@ class EntityMediator:
     def __give_score(enemy: Enemy, entity_list: list[Entity]):
         if enemy.last_dmg == 'PlayerShipShot':
             for ent in entity_list:
-                if ent.name == 'Player1':
+                if ent.name == 'PlayerShip':
                     ent.score += enemy.score
 
 
@@ -36,6 +36,8 @@ class EntityMediator:
         elif isinstance(ent1, Player) and isinstance(ent2, EnemyShoot):
             valid_interaction = True
         elif isinstance(ent1, EnemyShoot) and isinstance(ent2, Player):
+            valid_interaction = True
+        elif isinstance(ent1, Player) and isinstance(ent2, Enemy):
             valid_interaction = True
 
         if valid_interaction: 
